@@ -7,20 +7,16 @@
 import random
 
 
-def largest_number(random_list, number_of_elements):
+def largest_number(random_list):
+    # this function calculates the largest number
 
-    for loop_counter in range(0, number_of_elements):
-        first = random_list[loop_counter]
-        largest = first
-        break
+    number_of_elements = len(random_list)
+    largest = random_list[0]
 
     for loop_counter in range(0, number_of_elements):
         large_number = random_list[loop_counter]
-        print("The number is {0}.".format(large_number))
         if large_number > largest:
             largest = large_number
-        else:
-            pass
 
     return largest
 
@@ -29,14 +25,15 @@ def main():
 
     random_list = []
     number_of_elements = 10
-
-    for loop_counter in range(0, number_of_elements):
-        generating = random.randint(1, 100)
-        random_list.append(generating)
-
     print("Here is a list of random numbers")
     print("")
-    large = largest_number(random_list, number_of_elements)
+    for loop_counter in range(0, number_of_elements):
+        generating = random.randint(1, 100)
+        print("The number is {0}.".format(generating))
+        random_list.append(generating)
+
+    print("")
+    large = largest_number(random_list)
 
     print("")
     print("The largest number is {0}.".format((large)))
